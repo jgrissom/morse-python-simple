@@ -4,13 +4,17 @@ from time import sleep
 def dot():
     print('.')
     led_red.on()
+    buzzer.on()
     sleep(.1)
+    buzzer.off()
     led_red.off()
     
 def dash():
     print('-')
     led_red.on()
+    buzzer.on()
     sleep(.2)
+    buzzer.off()
     led_red.off()
 
 def main():
@@ -30,7 +34,9 @@ if __name__ == "__main__":
         btn_red = Pin(18, Pin.IN, Pin.PULL_UP)
         btn_green = Pin(5, Pin.IN, Pin.PULL_UP)
         led_red = Pin(26, Pin.OUT)
+        buzzer = Pin(25, Pin.OUT)
         main()
     finally:
         print('goodbye')
         led_red.off()
+        buzzer.off()
